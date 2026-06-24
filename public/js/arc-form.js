@@ -5,7 +5,7 @@
     for (var i = 0; i < els.length; i++) {
       var el = els[i];
       if (!el.name || el.disabled) continue;
-      if (el.name.startsWith('_wpcf7') || el.name === '_wpcf7_recaptcha_response') continue;
+      if (el.type === 'submit') continue;
       data[el.name] = el.value;
     }
     return data;
