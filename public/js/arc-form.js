@@ -11,23 +11,60 @@
     return data;
   }
 
-  window.ArcForm = {
-    submit: function (formEl, options) {
-      var payload = Object.assign({ title: options.title, source: options.source }, serialize(formEl));
-      return fetch('/api/contact', {
+  function initForm(form) {
+    var submitBtn = form.querySelector('input[type="submit"]');
+    var responseEl = form.querySelector('.wpcf7-response-output');
+    var origLabel = submitBtn ? submitBtn.value : 'SEND IT';
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.value = 'Sending…';
+      }
+      if (responseEl) {
+        responseEl.textContent = '';
+        responseEl.style.display = 'none';
+      }
+
+      fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(serialize(form)),
       })
         .then(function (res) {
-          if (res.ok) return { ok: true };
-          return res.json().catch(function () { return {}; }).then(function (body) {
-            return { ok: false, error: body.error || 'Submission failed' };
-          });
+          if (res.ok) {
+            form.style.display = 'none';
+            var msg = document.createElement('p');
+            msg.textContent = "Thank you! We’ll be in touch soon.";
+            msg.style.cssText = 'font-size:1.2em;margin-top:1em;';
+            form.parentNode.insertBefore(msg, form.nextSibling);
+          } else {
+            if (responseEl) {
+              responseEl.textContent = 'Something went wrong. Please try again or email us directly.';
+              responseEl.style.display = 'block';
+            }
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.value = origLabel;
+            }
+          }
         })
         .catch(function () {
-          return { ok: false, error: 'Network error' };
+          if (responseEl) {
+            responseEl.textContent = 'Something went wrong. Please try again or email us directly.';
+            responseEl.style.display = 'block';
+          }
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.value = origLabel;
+          }
         });
-    },
-  };
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.wpcf7-form').forEach(initForm);
+  });
 })();

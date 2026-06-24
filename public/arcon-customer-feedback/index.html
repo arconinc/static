@@ -610,9 +610,9 @@ section#search-2.widget.widget_search {
 							<sr7-txt id="SR7_17_1-15-1" class="sr7-layer" srscsrc>
 <div class="wpcf7 no-js" id="wpcf7-f15403-p15401-o1" lang="en-US" dir="ltr" data-wpcf7-id="15403">
 <div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
-<form action="/arcon-customer-feedback/?simply_static_page=7#wpcf7-f15403-p15401-o1" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
-<fieldset class="hidden-fields-container"><input type="hidden" name="_wpcf7" value="15403"><input type="hidden" name="_wpcf7_version" value="6.1.6"><input type="hidden" name="_wpcf7_locale" value="en_US"><input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f15403-p15401-o1"><input type="hidden" name="_wpcf7_container_post" value="15401"><input type="hidden" name="_wpcf7_posted_data_hash" value=""><input type="hidden" name="_wpcf7_recaptcha_response" value="">
-</fieldset>
+<form action="/api/contact" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<input type="hidden" name="title" value="Arconinc.com Customer Feedback">
+<input type="hidden" name="source" value="arconinc.com/arcon-customer-feedback">
 <p><span class="wpcf7-form-control-wrap" data-name="your-name"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your Name" value="" type="text" name="your-name"></span>
 </p>
 <p><span class="wpcf7-form-control-wrap" data-name="your-company"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your Company" value="" type="text" name="your-company"></span>
@@ -826,5 +826,6 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 		<script>window.addEventListener('click', function (elem) { var _elem$target, _elem$target$dataset, _window, _window$_trfq; return (elem === null || elem === void 0 ? void 0 : (_elem$target = elem.target) === null || _elem$target === void 0 ? void 0 : (_elem$target$dataset = _elem$target.dataset) === null || _elem$target$dataset === void 0 ? void 0 : _elem$target$dataset.eid) && ((_window = window) === null || _window === void 0 ? void 0 : (_window$_trfq = _window._trfq) === null || _window$_trfq === void 0 ? void 0 : _window$_trfq.push(["cmdLogEvent", "click", elem.target.dataset.eid]));});</script>
 		<script src='https://img1.wsimg.com/traffic-assets/js/tccl-tti.min.js' onload="window.tti.calculateTTI()"></script>
 				
-	</body>
+	<script src="/js/arc-form.js"></script>
+</body>
 </html>

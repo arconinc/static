@@ -725,15 +725,15 @@ section#search-2.widget.widget_search {
 
 <div class="wpcf7 no-js" id="wpcf7-f15999-p16072-o1" lang="en-US" dir="ltr" data-wpcf7-id="15999">
 <div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
-<form action="/custom-drinkware/?simply_static_page=10#wpcf7-f15999-p16072-o1" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
-<fieldset class="hidden-fields-container"><input type="hidden" name="_wpcf7" value="15999"><input type="hidden" name="_wpcf7_version" value="6.1.6"><input type="hidden" name="_wpcf7_locale" value="en_US"><input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f15999-p16072-o1"><input type="hidden" name="_wpcf7_container_post" value="16072"><input type="hidden" name="_wpcf7_posted_data_hash" value=""><input type="hidden" name="_wpcf7_recaptcha_response" value="">
-</fieldset>
+<form action="/api/contact" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<input type="hidden" name="title" value="Arconinc.com Custom Drinkware">
+<input type="hidden" name="source" value="arconinc.com/custom-drinkware">
 <div class="awardlead">
 	<p><span class="wpcf7-form-control-wrap" data-name="your-name"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your Full Name" value="" type="text" name="your-name"></span>
 	</p>
-	<p><span class="wpcf7-form-control-wrap" data-name="email-500"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email" value="" type="email" name="email-500"></span>
+	<p><span class="wpcf7-form-control-wrap" data-name="email"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email" value="" type="email" name="email"></span>
 	</p>
-	<p><span class="wpcf7-form-control-wrap" data-name="tel-322"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="(555) 555-5555" value="" type="tel" name="tel-322"></span>
+	<p><span class="wpcf7-form-control-wrap" data-name="phone"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="(555) 555-5555" value="" type="tel" name="phone"></span>
 	</p>
 	<p><span class="wpcf7-form-control-wrap" data-name="your-company"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your Company Name" value="" type="text" name="your-company"></span>
 	</p>
@@ -974,5 +974,6 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 		</div>
 	</div>
 </div>
+<script src="/js/arc-form.js"></script>
 </body>
 </html>

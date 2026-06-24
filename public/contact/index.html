@@ -709,6 +709,8 @@ fax: 952.882.5279</p>
 <div class="wpcf7 no-js" id="wpcf7-f15781-p15301-o1" lang="en-US" dir="ltr" data-wpcf7-id="15781">
 <div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
 <form action="/api/contact" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<input type="hidden" name="title" value="Arconinc.com Contact Form Submission">
+<input type="hidden" name="source" value="arconinc.com/contact">
 <p><span class="wpcf7-form-control-wrap" data-name="your-name"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your Name" value="" type="text" name="your-name"></span>
 </p>
 <p><span class="wpcf7-form-control-wrap" data-name="email"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email" value="" type="email" name="email"></span>
@@ -973,49 +975,5 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 	</div>
 </div>
 <script src="/js/arc-form.js"></script>
-<script>
-(function () {
-  var form = document.querySelector('.wpcf7-form');
-  if (!form) return;
-
-  var submitBtn = form.querySelector('input[type="submit"]');
-  var responseEl = form.querySelector('.wpcf7-response-output');
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.value = 'Sending…';
-    }
-    if (responseEl) {
-      responseEl.textContent = '';
-      responseEl.style.display = 'none';
-    }
-
-    ArcForm.submit(form, {
-      title: 'Arconin.com Contact Form Submission',
-      source: 'arconinc.com/contact',
-    }).then(function (result) {
-      if (result.ok) {
-        form.style.display = 'none';
-        var msg = document.createElement('p');
-        msg.textContent = "Thank you! We'll be in touch soon.";
-        msg.style.cssText = 'font-size:1.2em;margin-top:1em;';
-        form.parentNode.insertBefore(msg, form.nextSibling);
-      } else {
-        if (responseEl) {
-          responseEl.textContent = 'Something went wrong. Please try again or email us directly.';
-          responseEl.style.display = 'block';
-        }
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.value = 'SEND IT';
-        }
-      }
-    });
-  });
-})();
-</script>
 </body>
 </html>
