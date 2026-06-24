@@ -390,9 +390,7 @@ or the following one for loading the Bootstrap library from jsDelivr:
 
 -- End of the comment --> 
 
-<script type="text/javascript" async defer src="https://chloe.insightly.services/js/WMZCXY.js"></script> <!-- end Simple Custom CSS and JS -->
-<script type="text/javascript" src="https://secure.hiss3lark.com/js/183806.js"></script>
-<noscript><img src="https://secure.hiss3lark.com/183806.png" alt="" style="display:none;" /></noscript>
+<!-- end Simple Custom CSS and JS -->
 <style>
 	.btn {
 		background-color: #6b1e98;
@@ -710,9 +708,7 @@ fax: 952.882.5279</p>
 
 <div class="wpcf7 no-js" id="wpcf7-f15781-p15301-o1" lang="en-US" dir="ltr" data-wpcf7-id="15781">
 <div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
-<form action="/contact/?simply_static_page=5274#wpcf7-f15781-p15301-o1" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
-<fieldset class="hidden-fields-container"><input type="hidden" name="_wpcf7" value="15781"><input type="hidden" name="_wpcf7_version" value="6.1.6"><input type="hidden" name="_wpcf7_locale" value="en_US"><input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f15781-p15301-o1"><input type="hidden" name="_wpcf7_container_post" value="15301"><input type="hidden" name="_wpcf7_posted_data_hash" value=""><input type="hidden" name="_wpcf7_recaptcha_response" value="">
-</fieldset>
+<form action="/contact" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
 <p><span class="wpcf7-form-control-wrap" data-name="your-name"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your Name" value="" type="text" name="your-name"></span>
 </p>
 <p><span class="wpcf7-form-control-wrap" data-name="email-773"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email" value="" type="email" name="email-773"></span>
@@ -875,18 +871,6 @@ jQuery(document).on( 'nfFormReady', function() {
 wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
 //# sourceURL=wp-i18n-js-after
 </script>
-<script src="/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=6.1.6" id="swv-js"></script>
-<script id="contact-form-7-js-before">
-var wpcf7 = {
-    "api": {
-        "root": "\/wp-json\/",
-        "namespace": "contact-form-7\/v1"
-    },
-    "cached": 1
-};
-//# sourceURL=contact-form-7-js-before
-</script>
-<script src="/wp-content/plugins/contact-form-7/includes/js/index.js?ver=6.1.6" id="contact-form-7-js"></script>
 <script src="/wp-content/plugins/go_pricing/assets/js/go_pricing_scripts.js?ver=3.4" id="go-pricing-scripts-js"></script>
 <script id="gem-main-js-extra">
 var GEM = {"thankyou":"Thank you for signing up!","thankyou_suppressed":"Thank you for signing up! Please check your email to confirm your subscription.","oops":"Oops! There was a problem. Please try again.","email":"Please enter a valid email address.","required":"%s is a required field."};
@@ -909,7 +893,6 @@ var wpcf7_recaptcha = {
 };
 //# sourceURL=wpcf7-recaptcha-js-before
 </script>
-<script src="/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=6.1.6" id="wpcf7-recaptcha-js"></script>
 <script id="wp-accessibility-js-extra">
 var wpa = {"skiplinks":{"enabled":false,"output":""},"target":"1","tabindex":"1","underline":{"enabled":false,"target":"a"},"videos":"","dir":"ltr","viewport":"1","lang":"en-US","titles":"1","labels":"1","wpalabels":{"s":"Search","author":"Name","email":"Email","url":"Website","comment":"Comment"},"alt":"","altSelector":".hentry img[alt]:not([alt=\"\"]), .comment-content img[alt]:not([alt=\"\"]), #content img[alt]:not([alt=\"\"]),.entry-content img[alt]:not([alt=\"\"])","current":"","errors":"","tracking":"","ajaxurl":"/wp-admin/admin-ajax.php","security":"673c0a8aad","action":"wpa_stats_action","url":"/contact/","post_id":"15301","continue":"","pause":"Pause video","play":"Play video","restUrl":"/wp-json/wp/v2/media","ldType":"button","ldHome":"","ldText":"\u003Cspan class=\"dashicons dashicons-media-text\" aria-hidden=\"true\"\u003E\u003C/span\u003E\u003Cspan class=\"screen-reader\"\u003ELong Description\u003C/span\u003E"};
 //# sourceURL=wp-accessibility-js-extra
@@ -989,5 +972,50 @@ const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(
 		</div>
 	</div>
 </div>
+<script src="/js/arc-form.js"></script>
+<script>
+(function () {
+  var form = document.querySelector('.wpcf7-form');
+  if (!form) return;
+
+  var submitBtn = form.querySelector('input[type="submit"]');
+  var responseEl = form.querySelector('.wpcf7-response-output');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.value = 'Sending…';
+    }
+    if (responseEl) {
+      responseEl.textContent = '';
+      responseEl.style.display = 'none';
+    }
+
+    ArcForm.submit(form, {
+      title: 'Arconin.com Contact Form Submission',
+      source: 'arconinc.com/contact',
+    }).then(function (result) {
+      if (result.ok) {
+        form.style.display = 'none';
+        var msg = document.createElement('p');
+        msg.textContent = "Thank you! We'll be in touch soon.";
+        msg.style.cssText = 'font-size:1.2em;margin-top:1em;';
+        form.parentNode.insertBefore(msg, form.nextSibling);
+      } else {
+        if (responseEl) {
+          responseEl.textContent = 'Something went wrong. Please try again or email us directly.';
+          responseEl.style.display = 'block';
+        }
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.value = 'SEND IT';
+        }
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>

@@ -16,7 +16,7 @@ const nextConfig = {
           destination: '/index.html'
         },
         {
-          source: '/:path*/',
+          source: '/:path((?!api/).*)+/',
           destination: '/:path*/index.html'
         }
       ]
